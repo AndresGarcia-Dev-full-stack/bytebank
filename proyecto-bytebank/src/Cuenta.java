@@ -18,6 +18,7 @@ class Cuenta {
 	}
 
 	public boolean transferir(double valor, Cuenta cuenta) {
+		
 		if (this.saldo >= valor) {
 			this.saldo = this.saldo - valor;
 			cuenta.depositar(valor);
