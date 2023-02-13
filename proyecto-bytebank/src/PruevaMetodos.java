@@ -1,28 +1,35 @@
 
 public class PruevaMetodos {
 	public static void main(String[] args) {
-
-		Cuenta miCuenta = new Cuenta(); // instancia de la clase o creacion del objeto
-		miCuenta.saldo = 300; // llenar el atributo
-		miCuenta.depositar(200);// llamado al metodo
-		System.out.println("saldo inicial mi cuenta: " + miCuenta.saldo);
 		
+		int a = 50 ;
+		double retiro = 350;
+		double saldo = 500;
+		
+		
+		Cuenta miCuenta = new Cuenta(); // instancia de la clase o creacion del objeto
+		miCuenta.setSaldo(saldo); // llenar el atributo
+		miCuenta.depositar(200);// llamado al metodo
+		System.out.println("saldo inicial mi cuenta: " + miCuenta.getSaldo());
+	
 		
 		Cuenta segunadCuenta = new Cuenta();// objeto 2 creado o segunda instancia
-		segunadCuenta.saldo = 150;// atributo de la segunda instancia creada
-		System.out.println("saldo inicial segunda cuenta" + segunadCuenta.saldo);
-		segunadCuenta.transferir(50, miCuenta);
+		segunadCuenta.setSaldo(100);// atributo de la segunda instancia creada
+		System.out.println("saldo inicial segunda cuenta" + segunadCuenta.getSaldo());
 		
-		boolean aprovado = miCuenta.retirar(600);
-		miCuenta.retirar(600);
-          
-		 if (aprovado) {
-			System.out.println("retiro APROVADO");
+		segunadCuenta.transferir(a, miCuenta);// llamado al metodo transferir
+		System.out.println("vas a transferir: " + a);
+		
+		miCuenta.retirar(retiro); //llamado al metodo retirar
+		boolean aprovado = miCuenta.retirar(retiro);//almacenar el return true o false en una variable para poder validar
+		
+		if (aprovado) {                            //validacion del metodo retirar
+			System.out.println("vas a retirar "+ retiro +" retiro APROVADO");
 		} else {
-			System.out.println("retiro negado ");
+			System.out.println("vas a retirar "+ retiro +" retiro negado ");
 		}
-		System.out.println("saldo segunda cuenta: " + segunadCuenta.saldo);
-		System.out.println("su final micuenta : " + miCuenta.saldo);
-		System.out.println(miCuenta.saldo);
+		System.out.println("saldo segunda cuenta: " + segunadCuenta.getSaldo());
+		System.out.println("su final micuenta : " + miCuenta.getSaldo());
+		System.out.println(miCuenta.getSaldo());
 	}
 }
